@@ -93,13 +93,15 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
-    # Loop through and pack each project
+    # Pack each project in the list
     - name: Pack the projects
+      shell: pwsh # Use PowerShell Core
       run: |
-        for project in $(echo "$env:Projects_To_Package" | Out-String).Trim().Split("`n")
-        do
+        $projects = $env:Projects_To_Package -split "`n"
+        foreach ($project in $projects) {
+          Write-Host "Packing project: $project"
           dotnet pack $project --configuration $env:Configuration --output ./nupkgs
-        done
+        }
       env:
         Configuration: ${{ matrix.configuration }}
 
