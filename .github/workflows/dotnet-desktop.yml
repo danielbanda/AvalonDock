@@ -82,14 +82,14 @@ jobs:
 
     # Execute unit tests for the specified test project
     - name: Execute unit tests
-      run: dotnet test $env:Test_Project_Path --configuration $env:Configuration /p:TargetFramework=net8.0
+      run: dotnet test $env:Test_Project_Path --configuration $env:Configuration /p:TargetFramework=net8.0-windows
       env:
         Test_Project_Path: ${{ env.Test_Project_Path }}
         Configuration: ${{ matrix.configuration }}
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:TargetFramework=net8.0
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:TargetFramework=net8.0-windows
       env:
         Configuration: ${{ matrix.configuration }}
 
@@ -100,7 +100,7 @@ jobs:
         $projects = $env:Projects_To_Package -split "`n"
         foreach ($project in $projects) {
           Write-Host "Packing project: $project"
-          dotnet pack $project --configuration $env:Configuration /p:TargetFramework=net8.0
+          dotnet pack $project --configuration $env:Configuration /p:TargetFramework=net8.0-windows
         }
       env:
         Configuration: ${{ matrix.configuration }}
