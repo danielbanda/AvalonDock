@@ -56,6 +56,7 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
+      Target_Framework: net8.0-windows
       Solution_Name: source/AvalonDock.sln                     # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: source/AutomationTest/AvalonDockTest/AvalonDockTest.csproj                # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
       Projects_To_Package: |
@@ -81,18 +82,18 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: Restore the application
-      run: dotnet restore $env:Solution_Name /p:Configuration=$env:Configuration /p:TargetFramework=net8.0-windows
+      run: dotnet restore $env:Solution_Name /p:Configuration=$env:Configuration /p:TargetFramework=$env:Target_Framework
       env:
         Configuration: ${{ matrix.configuration }}
 
     - name: Build the application
-      run: dotnet build $env:Solution_Name /p:Configuration=$env:Configuration /p:TargetFramework=net8.0-windows
+      run: dotnet build $env:Solution_Name /p:Configuration=$env:Configuration /p:TargetFramework=$env:Target_Framework
       env:
         Configuration: ${{ matrix.configuration }}
 
     # Execute unit tests for the specified test project
     - name: Execute unit tests
-      run: dotnet test $env:Test_Project_Path --configuration $env:Configuration /p:TargetFramework=net8.0-windows
+      run: dotnet test $env:Test_Project_Path --configuration $env:Configuration /p:TargetFramework=$env:Target_Framework
       env:
         Test_Project_Path: ${{ env.Test_Project_Path }}
         Configuration: ${{ matrix.configuration }}
@@ -104,7 +105,7 @@ jobs:
         $projects = $env:Projects_To_Package -split "`n"
         foreach ($project in $projects) {
           Write-Host "Packing project: $project"
-          dotnet pack $project --configuration $env:Configuration /p:TargetFramework=net8.0-windows
+          dotnet pack $project --configuration $env:Configuration /p:TargetFramework=$env:Target_Framework
         }
       env:
         Configuration: ${{ matrix.configuration }}
@@ -116,7 +117,7 @@ jobs:
         NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
       run: |
         # Search recursively for .nupkg files in bin/Release directories
-        $nupkgFiles = Get-ChildItem -Path . -Recurse -Filter "*.nupkg" -Include "bin\Release\*"
+        $nupkgFiles = Get-ChildItem -Path . -Recurse -Filter "*.nupkg"
         
         foreach ($file in $nupkgFiles) {
           Write-Host "Publishing package: $($file.FullName)"
