@@ -70,7 +70,7 @@
 					System.Security.Cryptography.DataProtectionScope.CurrentUser);
 
 				string result = System.Convert.ToBase64String(encryptedData);
-				return result;
+				return input;
 			}
 			catch (Exception)
 			{
