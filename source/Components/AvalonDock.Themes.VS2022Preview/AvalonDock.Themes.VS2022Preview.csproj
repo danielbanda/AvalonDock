@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	  <RootNamespace>AvalonDock.Themes</RootNamespace>
-	  <TargetFrameworks>net8.0-windows;net472</TargetFrameworks>
+	  <TargetFramework>net8.0-windows</TargetFramework>
 	  <LangVersion>preview</LangVersion>
 	  <UseWPF>true</UseWPF>
 	  <SignAssembly>True</SignAssembly>
