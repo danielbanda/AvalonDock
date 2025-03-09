@@ -1362,7 +1362,6 @@ namespace Standard
 
 	internal sealed class SafeFindHandle : SafeHandleZeroOrMinusOneIsInvalid
 	{
-		[SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
 		private SafeFindHandle() : base(true) { }
 
 		/// <inheritdoc />
