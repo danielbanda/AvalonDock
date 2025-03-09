@@ -86,13 +86,13 @@ jobs:
         Configuration: ${{ matrix.configuration }}
 
     - name: NuGet Publisher VS2022 DockingManger
-      uses: danielbanda/publish-nuget@v2.6.0
+      uses: daniel_banda/publish-nuget@v2.6.0
       with:
         # Filepath of the project to be packaged, relative to root of repository
         PROJECT_FILE_PATH: source/Components/AvalonDock.VS2022/AvalonDock.VS2022.csproj
 
     - name: NuGet Publisher VS2022 Theme
-      uses: danielbanda/publish-nuget@v2.6.0
+      uses: daniel_banda/publish-nuget@v2.6.0
       with:
         # Filepath of the project to be packaged, relative to root of repository
         PROJECT_FILE_PATH: source/Components/AvalonDock.Themes.VS2022/AvalonDock.Themes.VS2022.csproj
