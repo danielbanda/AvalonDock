@@ -100,7 +100,7 @@ jobs:
         $projects = $env:Projects_To_Package -split "`n"
         foreach ($project in $projects) {
           Write-Host "Packing project: $project"
-          dotnet pack $project --configuration $env:Configuration /p:TargetFramework=net8.0 --output ./nupkgs
+          dotnet pack $project --configuration $env:Configuration /p:TargetFramework=net8.0 /p:PackageOutputPath=./nupkgs
         }
       env:
         Configuration: ${{ matrix.configuration }}
