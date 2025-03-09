@@ -333,7 +333,16 @@ namespace Microsoft.Windows.Shell
 			};
 		}
 
-		public static SystemParameters2 Current => _threadLocalSingleton ??= new SystemParameters2();
+		public static SystemParameters2 Current
+		{
+			get
+			{
+				if (_threadLocalSingleton == null)
+					_threadLocalSingleton = new SystemParameters2();
+
+				return _threadLocalSingleton;
+			}
+		}
 
 		private IntPtr _WndProc(IntPtr hwnd, WM msg, IntPtr wParam, IntPtr lParam)
 		{
