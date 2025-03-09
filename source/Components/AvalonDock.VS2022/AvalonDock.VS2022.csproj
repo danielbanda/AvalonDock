@@ -15,8 +15,8 @@
 	  <Product>PIX.AvalonDock</Product>
 	  <Copyright>2017-2023</Copyright>
 	  <Description>This assembly implements a docking layout system for WPF.</Description>
-	  <PackageProjectUrl>https://github.com/danielbanda/AvalonDock</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/danielbanda/AvalonDock</RepositoryUrl>
+	  <PackageProjectUrl>https://github.com/daniel_banda/AvalonDock</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/daniel_banda/AvalonDock</RepositoryUrl>
 	  <PackageId>PIX.AvalonDock</PackageId>
 	  <Authors>ML592</Authors>
 	  <Title>PIX.AvalonDock</Title>
