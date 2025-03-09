@@ -39,9 +39,6 @@
     <ProjectReference Include="..\..\Components\AvalonDock.Themes.Metro\AvalonDock.Themes.Metro.csproj" />
     <ProjectReference Include="..\..\Components\AvalonDock.Themes.VS2013\AvalonDock.Themes.VS2013.csproj" />
     <ProjectReference Include="..\..\Components\AvalonDock\AvalonDock.csproj" />
-    <ProjectReference Include="..\..\MLibTest\MLibTest_Components\ServiceLocator\ServiceLocator.csproj" />
-    <ProjectReference Include="..\..\MLibTest\MLibTest_Components\Settings\SettingsModel\SettingsModel.csproj" />
-    <ProjectReference Include="..\..\MLibTest\MLibTest_Components\Settings\Settings\Settings.csproj" />
   </ItemGroup>
 
   <ItemGroup>
