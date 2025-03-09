@@ -100,12 +100,22 @@ jobs:
         $projects = $env:Projects_To_Package -split "`n"
         foreach ($project in $projects) {
           Write-Host "Packing project: $project"
-          dotnet pack $project --configuration $env:Configuration /p:TargetFramework=net8.0 /p:PackageOutputPath=./nupkgs
+          dotnet pack $project --configuration $env:Configuration /p:TargetFramework=net8.0
         }
       env:
         Configuration: ${{ matrix.configuration }}
 
+    # Publish to NuGet
     - name: Publish to NuGet
+      shell: pwsh # Use PowerShell Core
       env:
         NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-      run: dotnet nuget push ./nupkgs/PIX*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
+      run: |
+        # Search recursively for .nupkg files in bin/Release directories
+        $nupkgFiles = Get-ChildItem -Path . -Recurse -Filter "*.nupkg" -Include "bin\Release\*"
+        
+        foreach ($file in $nupkgFiles) {
+          Write-Host "Publishing package: $($file.FullName)"
+          dotnet nuget push $file.FullName --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json
+        }
+
