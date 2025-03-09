@@ -14,15 +14,4 @@
     <ProjectReference Include="..\Components\AvalonDock.Themes.VS2022\AvalonDock.Themes.VS2022.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Page Update="Themes\BlueBrushsExtended.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Themes\LightBrushsExtended.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-
 </Project>
