@@ -91,7 +91,7 @@ jobs:
     - name: Pack the project
       run: dotnet pack $env:Solution_Name --configuration $env:Configuration --output ./nupkgs
       env:
-        Configuration: ${{ matrix.configuration 
+        Configuration: ${{ matrix.configuration }}
 
     - name: Publish to NuGet
       env:
