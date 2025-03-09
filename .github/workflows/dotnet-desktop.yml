@@ -58,6 +58,11 @@ jobs:
     env:
       Solution_Name: source/AvalonDock.sln                     # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: source/AutomationTest/AvalonDockTest/AvalonDockTest.csproj                # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      Projects_To_Package: |
+        source/Components/AvalonDock.VS2022/AvalonDock.VS2022.csproj
+        source/Components/AvalonDock.Themes.VS2022/AvalonDock.Themes.VS2022.csproj
+        source/Components/AvalonDock.VS2022Preview/AvalonDock.VS2022Preview.csproj
+        source/Components/AvalonDock.Themes.VS2022Preview/AvalonDock.Themes.VS2022Preview.csproj
 
     steps:
     - name: Checkout
@@ -87,9 +92,14 @@ jobs:
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
-    
-    - name: Pack the project
-      run: dotnet pack $env:Solution_Name --configuration $env:Configuration --output ./nupkgs
+
+    # Loop through and pack each project
+    - name: Pack the projects
+      run: |
+        for project in $(echo "$env:Projects_To_Package" | Out-String).Trim().Split("`n")
+        do
+          dotnet pack $project --configuration $env:Configuration --output ./nupkgs
+        done
       env:
         Configuration: ${{ matrix.configuration }}
 
