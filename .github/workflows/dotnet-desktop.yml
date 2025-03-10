@@ -112,15 +112,24 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
-    # Publish all generated NuGet packages
     - name: Publish to NuGet
       shell: pwsh
       env:
         NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
       run: |
+         # Create the artifact folder if it doesn't exist
+         $artifactFolder = "./artifact"
+         if (-not (Test-Path -Path $artifactFolder)) {
+            New-Item -ItemType Directory -Path $artifactFolder | Out-Null
+         }
+    
          # Find and push all NuGet packages
          Get-ChildItem -Path . -Recurse -Filter "PIX.*.nupkg" | ForEach-Object {
             Write-Host "Publishing package: $($_.FullName)"
             nuget push $_.FullName -ApiKey $env:NUGET_API_KEY -Source https://api.nuget.org/v3/index.json -SkipDuplicate
+    
+            # Copy the package to the artifact folder
+            Write-Host "Copying package to artifact folder: $($_.FullName)"
+            Copy-Item -Path $_.FullName -Destination $artifactFolder -Force
          }
-
+    
