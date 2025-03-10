@@ -108,7 +108,7 @@ jobs:
     # Pack all projects using MSBuild
     - name: Pack projects
       shell: pwsh
-      run: msbuild /t:Pack /p:Configuration=${{ matrix.configuration }} /p:TargetFramework=$env:Target_Framework
+      run: msbuild $env:Solution_Name /t:Pack /p:Configuration=${{ matrix.configuration }} /p:TargetFramework=$env:Target_Framework
       env:
         Configuration: ${{ matrix.configuration }}
 
