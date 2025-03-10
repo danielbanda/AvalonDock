@@ -4,8 +4,6 @@
 	<!-- Starting with .NET 8, the default behavior of the .NET SDK and runtime is to only consider non-version-specific and non-distro-specific RIDs. -->
 	<!-- https://learn.microsoft.com/en-us/dotnet/core/rid-catalog#using-rids -->
 	<PropertyGroup>
-<!--		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>-->
-		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
 		<LangVersion>12.0</LangVersion>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
