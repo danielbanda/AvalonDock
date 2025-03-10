@@ -82,20 +82,21 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
 
-    - name: Clean build artifacts
-      run: dotnet clean $env:Solution_Name --configuration $env:Configuration /p:TargetFramework=$env:Target_Framework
+    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    - name: Restore the application
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:TargetFramework=$env:Target_Framework
       env:
         Configuration: ${{ matrix.configuration }}
 
     - name: Restore the application
-      run: dotnet restore $env:Solution_Name /p:Configuration=$env:Configuration /p:TargetFramework=$env:Target_Framework
+      run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:TargetFramework=$env:Target_Framework
       env:
         Configuration: ${{ matrix.configuration }}
 
-    - name: Build the application
-      run: dotnet build $env:Solution_Name /p:Configuration=$env:Configuration /p:TargetFramework=$env:Target_Framework
-      env:
-        Configuration: ${{ matrix.configuration }}
+    # - name: Build the application
+    #   run: dotnet build $env:Solution_Name /p:Configuration=$env:Configuration /p:TargetFramework=$env:Target_Framework
+    #   env:
+    #     Configuration: ${{ matrix.configuration }}
 
     # Execute unit tests for the specified test project
     - name: Execute unit tests
