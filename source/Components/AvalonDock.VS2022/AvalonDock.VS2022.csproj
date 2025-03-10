@@ -17,7 +17,7 @@
 	  <Description>This assembly implements a docking layout system for WPF.</Description>
 	  <PackageProjectUrl>https://github.com/danielbanda/AvalonDock</PackageProjectUrl>
 	  <RepositoryUrl>https://github.com/danielbanda/AvalonDock</RepositoryUrl>
-	  <PackageId>PIX.AvalonDock.VS2022</PackageId>
+	  <PackageId>db.AvalonDock.VS2022</PackageId>
 	  <Authors>danielbanda</Authors>
 	  <Title>PIX.AvalonDock.VS2022</Title>
 	  <PackageReadmeFile>readme-nuget.md</PackageReadmeFile>
