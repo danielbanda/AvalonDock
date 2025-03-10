@@ -482,7 +482,6 @@ namespace Standard
 		/// <summary>
 		/// Convert the result of Win32 GetLastError() into a raised exception.
 		/// </summary>
-		[DoesNotReturn]
 		public static void ThrowLastError()
 		{
 			((HRESULT)Win32Error.GetLastError()).ThrowIfFailed();
