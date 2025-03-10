@@ -9,6 +9,7 @@
 		<TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
 		<LangVersion>12.0</LangVersion>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<EnableFileLocking>false</EnableFileLocking>
 		<NoWarn>
 			CA1416; <!-- This call site is reachable on all platforms. -->
 		</NoWarn>
