@@ -117,5 +117,10 @@ jobs:
       shell: pwsh
       env:
         NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-      run: msbuild $env:Solution_Name /t:PushPackages /p:ApiKey=$env:NUGET_API_KEY /p:Source=https://api.nuget.org/v3/index.json /p:PackagePath="**/*.nupkg"
-      
+      run: |
+         # Find and push all NuGet packages
+         Get-ChildItem -Path . -Recurse -Filter "*.nupkg" | ForEach-Object {
+            Write-Host "Publishing package: $($_.FullName)"
+            nuget push $_.FullName -ApiKey $env:NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
+         }
+
