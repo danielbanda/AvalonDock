@@ -105,29 +105,17 @@ jobs:
         Test_Project_Path: ${{ env.Test_Project_Path }}
         Configuration: ${{ matrix.configuration }}
 
-    # Pack each project in the list
-    - name: Pack the projects
-      shell: pwsh # Use PowerShell Core
-      run: |
-        $projects = $env:Projects_To_Package -split "`n"
-        foreach ($project in $projects) {
-          Write-Host "Packing project: $project"
-          dotnet pack $project --configuration $env:Configuration /p:TargetFramework=$env:Target_Framework
-        }
+    # Pack all projects using MSBuild
+    - name: Pack projects
+      shell: pwsh
+      run: msbuild /t:Pack /p:Configuration=${{ matrix.configuration }} /p:TargetFramework=$env:Target_Framework
       env:
         Configuration: ${{ matrix.configuration }}
 
-    # Publish to NuGet
+    # Publish all generated NuGet packages
     - name: Publish to NuGet
-      shell: pwsh # Use PowerShell Core
+      shell: pwsh
       env:
         NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-      run: |
-        # Search recursively for .nupkg files in bin/Release directories
-        $nupkgFiles = Get-ChildItem -Path . -Recurse -Filter "*.nupkg"
-        
-        foreach ($file in $nupkgFiles) {
-          Write-Host "Publishing package: $($file.FullName)"
-          dotnet nuget push $file.FullName --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json
-        }
-
+      run: msbuild /t:PushPackages /p:ApiKey=$env:NUGET_API_KEY /p:Source=https://api.nuget.org/v3/index.json /p:PackagePath="**/*.nupkg"
+      
