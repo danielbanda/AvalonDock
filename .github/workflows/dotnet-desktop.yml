@@ -124,7 +124,7 @@ jobs:
          }
     
          # Find and push all NuGet packages
-         Get-ChildItem -Path . -Recurse -Filter "PIX.*.nupkg" | ForEach-Object {
+         Get-ChildItem -Path . -Recurse -Filter "db.*.nupkg" | ForEach-Object {
             Write-Host "Publishing package: $($_.FullName)"
             nuget push $_.FullName -ApiKey $env:NUGET_API_KEY -Source https://api.nuget.org/v3/index.json -SkipDuplicate
     
