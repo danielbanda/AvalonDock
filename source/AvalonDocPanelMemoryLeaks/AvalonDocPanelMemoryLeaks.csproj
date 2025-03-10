@@ -1,12 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
 		<TargetFramework>net8.0-windows</TargetFramework>
-		<ProjectGuid>{FE4E16A2-876A-4356-9974-8A89C50B2A5A}</ProjectGuid>
-		<RootNamespace>AvalonDocPanelMemoryLeaks</RootNamespace>
-		<AssemblyName>AvalonDocPanelMemoryLeaks</AssemblyName>
-		<FileVersion>1.0.0.0</FileVersion>
 		<UseWPF>true</UseWPF>
+		<ProjectGuid>{FE4E16A2-876A-4356-9974-8A89C50B2A5A}</ProjectGuid>
+		<FileVersion>1.0.0.0</FileVersion>
 		<IsPackable>false</IsPackable>
 		<NoWarn>
 			NU1701;
