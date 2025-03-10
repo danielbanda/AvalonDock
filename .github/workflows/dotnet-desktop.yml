@@ -132,4 +132,9 @@ jobs:
             Write-Host "Copying package to artifact folder: $($_.FullName)"
             Copy-Item -Path $_.FullName -Destination $artifactFolder -Force
          }
-    
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifact
+        path: ./artifact 
