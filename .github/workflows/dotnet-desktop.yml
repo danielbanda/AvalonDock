@@ -56,7 +56,7 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      MSBUILDNODEReuse: false
+      MSBUILDNODEReuse: "false" # Ensure MSBuild does not reuse nodes
       Target_Framework: net8.0-windows
       Solution_Name: source/AvalonDock.sln                     # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: source/AutomationTest/AvalonDockTest/AvalonDockTest.csproj                # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
