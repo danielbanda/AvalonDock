@@ -15,11 +15,11 @@
 	  <Product>PIX.AvalonDock</Product>
 	  <Copyright>2017-2023</Copyright>
 	  <Description>This assembly implements a docking layout system for WPF.</Description>
-	  <PackageProjectUrl>https://github.com/daniel_banda/AvalonDock</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/daniel_banda/AvalonDock</RepositoryUrl>
-	  <PackageId>PIX.AvalonDock</PackageId>
-	  <Authors>ML592</Authors>
-	  <Title>PIX.AvalonDock</Title>
+	  <PackageProjectUrl>https://github.com/danielbanda/AvalonDock</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/danielbanda/AvalonDock</RepositoryUrl>
+	  <PackageId>PIX.AvalonDock.VS2022</PackageId>
+	  <Authors>danielbanda</Authors>
+	  <Title>PIX.AvalonDock.VS2022</Title>
 	  <PackageReadmeFile>readme-nuget.md</PackageReadmeFile>
 	  <IncludeSymbols>True</IncludeSymbols>
 	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
