@@ -90,7 +90,7 @@ jobs:
         Configuration: ${{ matrix.configuration }}
 
     - name: Build the application
-      run: dotnet build $env:Solution_Name /p:Configuration=$env:Configuration /p:TargetFramework=$env:Target_Framework
+      run: dotnet build --no-parallel $env:Solution_Name /p:Configuration=$env:Configuration /p:TargetFramework=$env:Target_Framework
       env:
         Configuration: ${{ matrix.configuration }}
 
