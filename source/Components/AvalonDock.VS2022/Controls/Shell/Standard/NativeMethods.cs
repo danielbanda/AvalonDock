@@ -2768,13 +2768,13 @@ namespace Standard
 		}
 
 		[DllImport("gdi32.dll", EntryPoint = "GetStockObject", SetLastError = true)]
-		private static extern IntPtr _GetStockObject(StockObject fnObject);
+		private static extern IntPtr? _GetStockObject(StockObject fnObject);
 
 		public static IntPtr GetStockObject(StockObject fnObject)
 		{
 			var retPtr = _GetStockObject(fnObject);
 			if (retPtr == null) HRESULT.ThrowLastError();
-			return retPtr;
+			return retPtr.Value;
 		}
 
 		[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
