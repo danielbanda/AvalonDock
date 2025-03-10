@@ -12,7 +12,7 @@
 	  <FileVersion>4.72.2</FileVersion>
 	  <PackageVersion>4.72.2</PackageVersion>
 	  <Company>Open Source</Company>
-	  <Product>PIX.AvalonDock.Themes.VS2022Preview</Product>
+	  <Product>danielbanda.AvalonDock.Themes.VS2022Preview</Product>
 	  <Copyright>2017-2023</Copyright>
 	  <Description>This assembly implements a docking layout system for WPF.</Description>
 	  <PackageProjectUrl>https://github.com/danielbanda/AvalonDock</PackageProjectUrl>
@@ -20,7 +20,7 @@
 	  <PackageId>danielbanda.AvalonDock.Themes.VS2022Preview</PackageId>
 	  <Authors>danielbanda</Authors>
 	  <DelaySign>False</DelaySign>
-	  <Title>PIX.AvalonDock.Themes.VS2022Preview</Title>
+	  <Title>danielbanda.AvalonDock.Themes.VS2022Preview</Title>
 	  <PackageReadmeFile>readme-nuget.md</PackageReadmeFile>
 	  <IncludeSymbols>True</IncludeSymbols>
 	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>

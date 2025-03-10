@@ -12,14 +12,14 @@
 	  <FileVersion>4.72.2</FileVersion>
 	  <PackageVersion>4.72.2</PackageVersion>
 	  <Company>Open Source</Company>
-	  <Product>PIX.AvalonDock</Product>
+	  <Product>danielbanda.AvalonDock</Product>
 	  <Copyright>2017-2023</Copyright>
 	  <Description>This assembly implements a docking layout system for WPF.</Description>
 	  <PackageProjectUrl>https://github.com/danielbanda/AvalonDock</PackageProjectUrl>
 	  <RepositoryUrl>https://github.com/danielbanda/AvalonDock</RepositoryUrl>
 	  <PackageId>danielbanda.AvalonDock.VS2022</PackageId>
 	  <Authors>danielbanda</Authors>
-	  <Title>PIX.AvalonDock.VS2022</Title>
+	  <Title>danielbanda.AvalonDock.VS2022</Title>
 	  <PackageReadmeFile>readme-nuget.md</PackageReadmeFile>
 	  <IncludeSymbols>True</IncludeSymbols>
 	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
