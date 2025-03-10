@@ -2773,7 +2773,7 @@ namespace Standard
 		public static IntPtr GetStockObject(StockObject fnObject)
 		{
 			var retPtr = _GetStockObject(fnObject);
-			if (retPtr == null) HRESULT.ThrowLastError();
+			if (retPtr == IntPtr.Zero) HRESULT.ThrowLastError();
 			return retPtr;
 		}
 
